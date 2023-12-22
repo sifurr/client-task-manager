@@ -1,13 +1,13 @@
-import './App.css'
+import { Outlet } from "react-router-dom";
+
+
 
 function App() {
-
   return (
-    <>
-      <h1>Task Management Platform</h1>
-     
-    </>
-  )
+    <div className="min-h-screen transition duration-200 dark:bg-gray-900">
+      <Outlet />
+    </div>
+  );
 }
 
-export default App
+export default App;
