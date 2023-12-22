@@ -52,14 +52,13 @@ const Login = () => {
                 axiosPublic.post("/api/v1/auth/access-token", user, { withCredentials: true })
                 .then(res => {
                         // console.log ("res-->:", res);
+                        navigate("/task-management")
                        
                         if (res.data.success) {
                             axiosPublic.post("/api/v1/users", userInfo)
                                 .then(result => {
                                     if (result.data.insertedId) {
-                                        toast.success("Logged in successfully")
-                                        
-                                        navigate(from, { replace: true })
+                                        toast.success("Logged in successfully")                                        
                                     }
                                 })
                             .catch(err => {

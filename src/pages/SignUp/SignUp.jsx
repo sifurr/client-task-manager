@@ -42,7 +42,8 @@ const SignUp = () => {
                                     logOut()
                                         .then(() => {
                                             // console.log("");
-                                            navigate(from, { replace: true })
+                                            // navigate(from, { replace: true })
+                                            navigate('/task-management')
                                         })
                                         .catch(err => {
                                             // console.log("e1",err)
@@ -76,7 +77,8 @@ const SignUp = () => {
                 
                 axiosPublic.post("/api/v1/auth/access-token", user, { withCredentials: true })
                 .then(res => {
-                        console.log ("res-->:", res);
+                        // console.log ("res-->:", res);
+                        navigate("/task-management")
                         // console.log("token res,", res.data)
                         if (res.data.success) {
                             axiosPublic.post("/api/v1/users", userInfo)
@@ -84,7 +86,8 @@ const SignUp = () => {
                                     if (result.data.insertedId) {
                                         toast.success("Logged in successfully")
                                         // console.log("user: ", res.user);
-                                        navigate(from, { replace: true })
+                                        // navigate(from, { replace: true })
+                                        navigate('/task-management')
                                     }
                                 })
                             .catch(err => console.log(err))

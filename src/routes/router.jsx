@@ -4,6 +4,8 @@ import PrivateLayout from "../layouts/PrivateLayout";
 import SignUp from "../pages/SignUp/SignUp";
 import Home from "../pages/publicPages/Home/Home";
 import Login from "../pages/Login/Login";
+import TaskManager from "../pages/privatePages/TaskManager/TaskManager";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -29,14 +31,10 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <PrivateLayout />,
-        children: [
-            {
-                path: 'dashboard',
-                element: <div>dashboard</div>
-            },
+        children: [                        
             {
                 path: 'task-management',
-                element: <div>Task Management</div>
+                element: <PrivateRoute><TaskManager/></PrivateRoute>
             },
             {
                 path: 'Profile',
