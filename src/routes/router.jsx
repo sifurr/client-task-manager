@@ -6,6 +6,7 @@ import Home from "../pages/publicPages/Home/Home";
 import Login from "../pages/Login/Login";
 import TaskManager from "../pages/privatePages/TaskManager/TaskManager";
 import PrivateRoute from "./PrivateRoute";
+import AboutUs from "../pages/publicPages/AboutUs";
 
 
 
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: 'signup',
                 element: <SignUp />
+            },
+            {
+                path: '/about',
+                element: <AboutUs/>
             }
         ]
     },
