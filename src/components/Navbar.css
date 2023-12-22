@@ -1,0 +1,32 @@
+.navbar {
+    z-index: 1000;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  
+  .dropdown-menu {
+    z-index: 1000; 
+  }
+  
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    position: absolute; /* or position: fixed; */
+    top: 100%; /* or adjust based on your layout */
+    left: 0;
+    display: none; /* Initially hide the dropdown */
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block; /* Show the dropdown on hover */
+  }
+  
