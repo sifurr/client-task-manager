@@ -9,13 +9,27 @@ import { LayoutDashboard,
      } from "lucide-react";
 
 import { useState } from "react";       
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
         
 const Sidebar = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(true)
+    const [sidebarOpen, setSidebarOpen] = useState(true);
+    const {user, logOut} = useAuth();
 
     const handleSidebar = () => {
         setSidebarOpen(!sidebarOpen)
+    }
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+
+                toast.success("Logged out successfully!");
+            })
+            .catch(err => {
+                toast.error(`Something is wrong!`)                
+            })
     }
 
     return (        
@@ -46,8 +60,7 @@ const Sidebar = () => {
                                         Dashboard
                                     </span>
                                 </NavLink>
-                            </li>
-                            
+                            </li>                            
                             
                             <li>
                                 <NavLink to="/task-management" className="flex gap-3">
@@ -57,7 +70,16 @@ const Sidebar = () => {
                                         Task Management
                                     </span>
                                 </NavLink>
+                            </li>
 
+                            <li>
+                                <NavLink to="/" onClick={handleLogout} className="flex gap-3">
+                                    <Layers />
+                                    <span
+                                        className={`${!sidebarOpen && "hidden"}`}>
+                                        Logout
+                                    </span>
+                                </NavLink>
                             </li>
                             
                         </div>
@@ -68,8 +90,8 @@ const Sidebar = () => {
                     <div className="flex gap-3 justify-center items-center">
                         <UserSquare size={!sidebarOpen ? 40 : 50} ></UserSquare>
                         <div className={`${!sidebarOpen && "hidden"}`}>
-                            <h5>John Doe</h5>
-                            <span>john@doe.com</span>
+                            <h5>{user?.displayName}</h5>
+                            <span>{user?.email}</span>
                         </div>
                     </div>
                 </div>

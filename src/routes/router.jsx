@@ -3,7 +3,8 @@ import App from "../App";
 import PrivateLayout from "../layouts/PrivateLayout";
 import SignUp from "../pages/SignUp/SignUp";
 import Home from "../pages/publicPages/Home/Home";
-import Login from "../../../Login/Login";
+import Login from "../pages/Login/Login";
+
 
 
 export const router = createBrowserRouter([
